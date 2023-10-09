@@ -1,6 +1,7 @@
 import os
 import psycopg2
 
+from dbmanager import DBManager
 from functions import get_company, get_vacancy
 
 # ID 10 интересующих компаний
@@ -22,4 +23,9 @@ try:
 finally:
     conn.close()
 
-
+a = DBManager()
+print(a.get_companies_and_vacancies_count())
+print(a.get_all_vacancies())
+print(a.get_avg_salary())
+print(a.get_vacancies_with_higher_salary())
+print(a.get_vacancies_with_keyword('Python'))
